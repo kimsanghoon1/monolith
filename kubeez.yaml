@@ -2,9 +2,9 @@
 apiVersion: "v1"
 kind: "Service"
 metadata: 
-  name: "ordereee"
+  name: "order"
   labels: 
-    app: "ordereee"
+    app: "order"
 spec: 
   ports: 
     - 
@@ -91,7 +91,7 @@ spec:
 apiVersion: "extensions/v1beta1"
 kind: "Ingress"
 metadata: 
-  name: "myapi"
+  name: "myapieeee"
   annotations: 
     kubernetes.io/ingress.class: "nginx"
 spec: 
