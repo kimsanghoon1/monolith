@@ -9,9 +9,9 @@ spec:
   ports: 
     - 
       port: 8080
-      targetPort: 80
+      targetPort: 8080
   selector: 
-    app: "welcome"
+    app: "order"
   type: "LoadBalancer"
 --- 
 apiVersion: "apps/v1"
@@ -130,7 +130,7 @@ spec:
       volumeMounts: 
         - 
           mountPath: "/data"
-          name: ""
+          name: "filesystem"
       env: 
         - 
           name: "PASSWORD"
@@ -140,9 +140,9 @@ spec:
               key: "password"
   volumes: 
     - 
-      name: ""
+      name: "filesystem"
       persistentVolumeClaim: 
-        claimName: ""
+        claimName: "filesystem"
 --- 
 apiVersion: "v1"
 kind: "Service"
