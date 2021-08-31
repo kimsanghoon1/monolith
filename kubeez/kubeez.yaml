@@ -14,7 +14,7 @@ spec:
         app: monolith
     spec:
       containers:
-      - image: gcr.io/eventstorming-tool/monolith:v0.1
+      - image: sanghoon01/monolith:e259648
         name: monolith
         ports:
         - containerPort: 8080
