@@ -14,7 +14,7 @@ spec:
         app: monolith
     spec:
       containers:
-      - image: sanghoon01/monolith:98f4785
+      - image: sanghoon01/monolith:d64166c
         name: monolith
         ports:
         - containerPort: 8080
