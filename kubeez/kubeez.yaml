@@ -30,8 +30,8 @@ metadata:
   labels: 
     app: "nginx3"
   annotations: 
-    msaez.io/x: 685
-    msaez.io/y: 382
+    msaez.io/x: "685"
+    msaez.io/y: "382"
 spec: 
   selector: 
     matchLabels: 
