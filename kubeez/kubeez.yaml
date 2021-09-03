@@ -22,6 +22,33 @@ spec:
           ports: 
             - 
               containerPort: 80
+--- 
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata: 
+  name: "nginx3"
+  labels: 
+    app: "nginx3"
+  annotations: 
+    msaez.io/x: "783"
+    msaez.io/y: "280"
+spec: 
+  selector: 
+    matchLabels: 
+      app: "nginx3"
+  replicas: 1
+  template: 
+    metadata: 
+      labels: 
+        app: "nginx3"
+    spec: 
+      containers: 
+        - 
+          name: "nginx3"
+          image: "nginx"
+          ports: 
+            - 
+              containerPort: 80
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
