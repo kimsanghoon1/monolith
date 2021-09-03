@@ -22,6 +22,54 @@ spec:
           ports: 
             - 
               containerPort: 80
+--- 
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata: 
+  name: "nginx3"
+  labels: 
+    app: "nginx3"
+  annotations: 
+    msaez.io/x: 685
+    msaez.io/y: 382
+spec: 
+  selector: 
+    matchLabels: 
+      app: "nginx3"
+  replicas: 1
+  template: 
+    metadata: 
+      labels: 
+        app: "nginx3"
+    spec: 
+      containers: 
+        - 
+          name: "nginx3"
+          image: "nginx"
+          ports: 
+            - 
+              containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monolith
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: monolith
+  template:
+    metadata:
+      labels:
+        app: monolith
+    spec:
+      containers:
+      - image: sanghoon01/monolith:d64166c
+        name: monolith
+        ports:
+        - containerPort: 8080
 ---
 apiVersion: "apps/v1"
 kind: "Deployment"
@@ -50,23 +98,3 @@ spec:
             - 
               containerPort: 80
 ---
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: monolith
-spec:
-  replicas: 1
-  revisionHistoryLimit: 3
-  selector:
-    matchLabels:
-      app: monolith
-  template:
-    metadata:
-      labels:
-        app: monolith
-    spec:
-      containers:
-      - image: sanghoon01/monolith:d64166c
-        name: monolith
-        ports:
-        - containerPort: 8080
